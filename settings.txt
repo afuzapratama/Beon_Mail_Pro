@@ -1,0 +1,21 @@
+simple ikutin aja konfigurasi yang ada 
+
+## Cara Install
+
+* install php 8.1 atau versi terbarunya
+* jangan lupa mbstring dll nya di aktifkan
+* install composer
+* pada bagian smtp jangan di ubah formatnya tetap seperti ini (user:pass@smtp.example.com:25)
+
+>php send.php (setelahnya dan heppy spaming)
+
+saran pakai vscode biar gampang atau cloud ide biar enak :v
+
+buat windows xampp bisa pake ini
+
+* buka xampp control panel
+* klik Shell
+* masuk ke folder sendernya ( gak tau ? belajar cari di internet cara masuk folder di cmd )
+* ketik `php send.php` (setelahnya dan heppy spaming)
+ 
++_catatan : jangan lupa di composer install dulu dan setting bagian php.ini cara settingnya cari di google cara aktifkan modul mbstring dll nya

@@ -1,0 +1,61 @@
+--==HOW TO USE BELOW==--
+------------------------
+MODE PRIORITY
+------------------------
+PRIORITY_HIGHEST = 1
+PRIORITY_HIGH = 2
+PRIORITY_NORMAL = 3
+PRIORITY_LOW = 4
+PRIORITY_LOWEST = 5
+
+--==RANDOM FIX FUNCTION BELOW==--
+{email}
+{shortlink}
+{randomemail}
+{randomstring}
+{randomstring1}
+{randomstring2}
+{randomstring3}
+{randomstring4}
+{randomstringlower}
+{randomstringupper}
+{randomnumber}
+{date}
+{date1}
+{date2}
+{date3}
+{date4}
+{randomip}
+{randomos}
+{randomdevice}
+{randomcountry}
+{md5micro}
+{specialnumber}
+{md5microupper}
+{md5microlower}
+{generateid}
+
+--==RANDOM CUSTOM FUNCTION BELOW==--
+
+Samples :
+{lowercase_10} - generate lowercase 10 character string
+
+format wajib seperti di atas
+
+Type :
+* lowercase
+* uppercase
+* numeric
+* mixedupper
+* mixedlower
+* hexadecimal
+* mixed 
+
+lenghth :
+* 1 - 99999 - Total tag alphabet/huruf/number !
+
+Example :
+{lowercase_10} = abcdefghij
+{uppercase_10} = ABCDEFGHIJ
+{numeric_10} = 0123456789
+{mixedupper_10} = ABCDEFGHIJ0123456789
