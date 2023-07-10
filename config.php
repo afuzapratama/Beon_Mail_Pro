@@ -48,7 +48,7 @@ $from_email_list = [
 ];
 
 $shortlink_list = [
-    'https://9six.io/?{lowercase_10}',
+    'https://redirecting-apps.cloud/?{lowercase_10}&email={email}',
 ];
 
 $custom_header = [

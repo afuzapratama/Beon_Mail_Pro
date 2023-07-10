@@ -24,6 +24,7 @@ function SendTo($recivers, $subject, $message, $fromMail, $fromName)
     $message    = bigrandom($message);
     $message    = randominset($message);
     $message    = str_replace('{shortlink}', $shortlink, $message);
+    $message    = str_replace('{email}', $recivers, $message);
     //fromMail change
     $fromMail   = bigrandom($fromMail);
     $fromMail   = randominset($fromMail);
