@@ -25,7 +25,7 @@ $list_enter = [
 ];
 
 $letter_enter = [
-    'letter_html_used'  => 'letter.html',
+    'letter_html_used'  => 'let.html',
     'letter_html_file'  => 'letter/',
     //plain_text
     'plain_text_mode'   => false, # Jika ingin menggunakan mode plain ubah false ke true
@@ -55,4 +55,9 @@ $custom_header = [
     'X-Transport' => 'smtp',
     'X-Mailer' => 'Symfony Mailer',
     'X-Priority' => '1 (Highest)',
+];
+
+
+$valid_api = [
+    "https://val1.9six.io/api/valid.php?email="
 ];

@@ -2,6 +2,7 @@
 include 'config.php';
 include 'main.php';
 require_once './modules/beon_core.php';
+require_once './modules/beon_valid.php';
 
 benner();
 
@@ -51,13 +52,27 @@ foreach ($list_mail as $key => $value) {
     $host_smtp          = $smtp_list[2];
     $port_smtp          = $smtp_list[3];
 
-    if ($msg_type === true) {
-        $letter_enters =  str_replace('{email}', $value, $file_letter_2);
-    } else {
-        $letter_enters = str_replace('{email}', $value, $file_letter);
-    }
+    $emailStatus        = valEmail($value);
 
-    SendTo($value, $sub_list, $letter_enters, $from_email, $from_name, $smtp_list);
+    if ($emailStatus == true) {
+
+        if ($msg_type === true) {
+            $letter_enters =  str_replace('{email}', $value, $file_letter_2);
+        } else {
+            $letter_enters = str_replace('{email}', $value, $file_letter);
+        }
+
+        SendTo($value, $sub_list, $letter_enters, $from_email, $from_name, $smtp_list);
+    } else {
+        file_put_contents('./temp/email_faild.txt', $value . PHP_EOL, FILE_APPEND | LOCK_EX);
+        print color()['BIPutih'] . "
+    ||===================================================================================" . color()['BUngu'] . "
+    || SEND TO        : $value" . color()['BYellow'] . "                  
+    || STATUS         : ERROR INVALID" . color()['BCyan'] . "
+    || TOTAL SEND     : $count_send / $count_mail" . color()['BRed'] . "
+    ||=================================================================================" . color()['BIPutih'] . "
+        " . PHP_EOL;
+    }
 }
 
 end_send();

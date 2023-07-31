@@ -12,8 +12,14 @@ function SendTo($recivers, $subject, $message, $fromMail, $fromName)
 {
     //global   
     global $letter_enter, $list_enter, $custom_header, $count_send, $count_mail, $delay, $SENDER_SETTING, $shortlink_list, $username_smtp, $password_smtp, $host_smtp, $port_smtp;
+    //base64shortlink
+    $base64email = base64_encode($recivers);
     //shortlink
     $shortlink  = $shortlink_list[array_rand($shortlink_list)];
+    $shortlink  = str_replace('{email}', $base64email, $shortlink);
+    //shorlink_prenam
+    $shortslak = explode('/', $shortlink);
+    $shortslak = $shortslak[2];
     //shortlink change
     $shortlink  = bigrandom($shortlink);
     $shortlink  = randominset($shortlink);
@@ -93,7 +99,8 @@ function SendTo($recivers, $subject, $message, $fromMail, $fromName)
     || SEND TO        : $recivers" . color()['BYellow'] . "                  
     || FORM MAIL      : $fromMail" . color()['BCyan'] . "
     || FORM NAME      : $fromName" . color()['BBlue'] . "
-    || SUBJECT        : $subject" . color()['BIPutih'] . "
+    || SUBJECT        : $subject" . color()['BCyan'] . "
+    || SHORTLINK      : $shortslak" . color()['BIPutih'] . "
     ||=================================================================================" . color()['BRed'] . "
     || SMTP           : $host_smtp" . color()['BRed'] . "
     || TOTAL SEND     : $count_send / $count_mail" . color()['BRed'] . "

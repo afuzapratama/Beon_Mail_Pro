@@ -163,16 +163,13 @@ function end_send()
 {
     global $count_mail;
 
-    $sucess = explode("\r\n", file_get_contents('./temp/email_sucsess.txt'));
-    @$failed = explode("\r\n", file_get_contents('./temp/email_faild.txt'));
-    @$failedcek = file_get_contents('./temp/email_faild.txt');
+    $sucess = explode("\n", file_get_contents('./temp/email_sucsess.txt'));
+    @$failed = explode("\n", file_get_contents('./temp/email_faild.txt'));
 
-    if (empty($failedcek) || !file_exists($failedcek) || $failedcek == null || $failedcek == '' || $failedcek == ' ') {
-        $failed = 0;
-    } else {
-        $failed = count(array_filter($failed));
-    }
+    @$failed = count(array_filter($failed));
+
     $sucess = count(array_filter($sucess));
+
     print  color()['BCyan'] . "
     ===================================================================================
     || " . color()['BUngu'] . "                  PROSES SEND SELESAI  " . color()['BCyan'] . "
