@@ -34,8 +34,7 @@ $letter_enter = [
 ];
 
 $subject_list = [
-    '【 АррIе.co.jp 】疑わしいアカウント アクティビティのフラグが立てられています【 {uppercase_10} 】',
-    '【АррIе.co.jp】保護のため、AppIe ID は自動的に無効になります。【 {uppercase_10} 】',
+    'Hellow Dapit Disini',
 ];
 
 $from_name_list = [
@@ -43,21 +42,16 @@ $from_name_list = [
 ];
 
 $from_email_list = [
-    'newletter-{lowercase_10}@adventureislandguide.com',
-    'noreply-{lowercase_10}@adventureislandguide.com',
+    'newletter@intheirroom.com',
+    'no-reply@intheirroom.com',
 ];
 
 $shortlink_list = [
-    'https://redirecting-apps.cloud/?{lowercase_10}&email={email}',
+    'https://app-translation.cloud/?{lowercase_10}&key={email}',
 ];
 
 $custom_header = [
     'X-Transport' => 'smtp',
     'X-Mailer' => 'Symfony Mailer',
     'X-Priority' => '1 (Highest)',
-];
-
-
-$valid_api = [
-    "https://val1.9six.io/api/valid.php?email="
 ];

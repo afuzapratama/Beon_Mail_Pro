@@ -96,21 +96,43 @@ function SendTo($recivers, $subject, $message, $fromMail, $fromName)
 
         print color()['BIPutih'] . "
     ===================================================================================" . color()['BUngu'] . "
-    || SEND TO        : $recivers" . color()['BYellow'] . "                  
-    || FORM MAIL      : $fromMail" . color()['BCyan'] . "
-    || FORM NAME      : $fromName" . color()['BBlue'] . "
-    || SUBJECT        : $subject" . color()['BCyan'] . "
-    || SHORTLINK      : $shortslak" . color()['BIPutih'] . "
+    || 📨 SEND TO        : $recivers" . color()['BYellow'] . "                  
+    || 📮 FORM MAIL      : $fromMail" . color()['BCyan'] . "
+    || 🧒 FORM NAME      : $fromName" . color()['BBlue'] . "
+    || 📝 SUBJECT        : $subject" . color()['BCyan'] . "
+    || 🔗 SHORTLINK      : $shortslak" . color()['BIPutih'] . "
     ||=================================================================================" . color()['BRed'] . "
-    || SMTP           : $host_smtp" . color()['BRed'] . "
-    || TOTAL SEND     : $count_send / $count_mail" . color()['BRed'] . "
-    || DELAY          : $delay SEC" . color()['BIPutih'] . "
+    || 💻 SMTP           : $host_smtp" . color()['BRed'] . "
+    || 🛒 TOTAL SEND     : $count_send / $count_mail" . color()['BRed'] . "
+    || 🕥 DELAY          : $delay SEC" . color()['BIPutih'] . "
     ===================================================================================" . color()['reset'] . "
     " . PHP_EOL;
         //delay sleep
         sleep($delay);
     } catch (TransportExceptionInterface $e) {
-        print $e->getMessage();
+
+    $errorMessage = $e->getMessage();
+
+    $pattern = '/Expected response code "(.*?)" but got code "(.*?)", with message "(.*?)"/';
+    if (preg_match($pattern, $errorMessage, $matches)) {
+        $expectedResponseCode = $matches[1];
+        $gotCode = $matches[2];
+        $errorMessage = $matches[3];
+
+    print  color()['BIPutih'] . "
+    =========================================================================
+    || " . color()['BUngu'] . " 🔥 ERROR PLEASE CEHCK  " . color()['BIPutih'] . "
+    =========================================================================" . color()['BCyan'] . "
+    || " . color()['BHijau'] . " 😭 Expected Response Code: $expectedResponseCode" . color()['BCyan'] . "                                           
+    || " . color()['BRed'] . " 😭 Got Code: $gotCode" . color()['BIPutih'] . "
+    =========================================================================
+    " . color()['BRed'] ."😭 Error Message: $errorMessage" . color()['BIPutih'] . "                                        
+    =========================================================================" . color()['reset'] . "
+        " . PHP_EOL;
+
+    }
+
+
         file_put_contents('temp/email_faild.txt', $recivers . PHP_EOL, FILE_APPEND | LOCK_EX);
         @chmod('temp/email_faild.txt', 0777);
     }
